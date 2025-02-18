@@ -1,0 +1,49 @@
+### Rota para pegar os produtos
+GET http://localhost:3000/pedidos
+
+### fechando a requicisao
+
+### Rota criando o produto
+POST http://localhost:3000/pedidos
+Content-Type: application/json
+
+{
+    "id": "1", 
+    "cliente": "João Gomes", 
+    "medicamento": "Dipirona",
+    "quant_medicamento": "2",
+    "vl_total": "10.00",
+    "status_pedido": "Aguardando pagamento",
+    "forma_pagamento": "Dinheiro"    
+}
+
+### 
+
+
+### Pegar produto pelo ID
+GET http://localhost:3000/pedidos/1
+Content-Type: application/json
+
+###
+
+### PUT - Editar Produto
+PUT http://localhost:3000/pedidos/1
+Content-Type: application/json
+
+{
+    "id": "1", 
+    "novoCliente": "João Gomes", 
+    "novoMedicamento": "ASS",
+    "novoQuant_medicamento": "5",
+    "novoVl_total": "100.00",
+    "novoStatus_pedido": "Aguardando pagamento",
+    "novoForma_pagamento": "Dinheiro"    
+}
+
+
+###
+
+
+### DELETE - Deletar produto
+DELETE http://localhost:3000/pedidos/1
+Content-Type: application/json
