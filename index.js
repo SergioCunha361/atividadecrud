@@ -50,7 +50,7 @@ app.put('/pedidos/:id', (requisicao, resposta) => {
     // loacalhost:3000/produtos/1 - O 1 é o parametro
 const id  = requisicao.params.id;
 
-const pedidos = bancoDados.find(elemento => elemento.id === id);
+const pedido = bancoDados.find(elemento => elemento.id === id);
 if (!id){
   return resposta.status(404).json({mensagem:"Informe o parametro"})
 }
@@ -102,35 +102,35 @@ app.delete('/pedidos/:id', (requisicao, resposta) => {
 });
 
 
-// app.get("/produtos/:id", (requisicao, resposta) => {
-//   try {
-//     const id = requisicao.params.id;  // esse id é string naturalmente
-//     const produto =bancoDados.find( elemento => elemento.id === id);
-//     if (!produto){
-//       return resposta.status(404).json({mensagem:"Produto não encontrado"})
-//     }
-//   resposta.status(200).json(produto)    
-//   } catch (error) {
-//     resposta.status(500).json({
-//       mensagem: "Erro ao buscar produto",
-//       erro: error.message
-//     })    
-//   }
-// })
+app.get("/pedidos/:id", (requisicao, resposta) => {
+  try {
+    const id = requisicao.params.id;  // esse id é string naturalmente
+    const pedido =bancoDados.find( elemento => elemento.id === id);
+    if (!pedido){
+      return resposta.status(404).json({mensagem:"Pedido não encontrado"})
+    }
+  resposta.status(200).json(pedido)    
+  } catch (error) {
+    resposta.status(500).json({
+      mensagem: "Erro ao buscar pedido",
+      erro: error.message
+    })    
+  }
+})
 
 
-// //Deletar todos os produtos
-// app.delete("/produtos", (requisicao, resposta) => {
-//   try {
-//     bancoDados.length = 0; // ou bancoDados = [}
-//     resposta.status(200).json({mensagem:"Todos os produtos foram dletados"})
-//   } catch (error) {
-//     resposta.status(500).json({
-//       mensagem:"Erro ao deletar produtos",
-//       erro: error.message
-//     })  
-//   }
-// })
+//Deletar todos os produtos
+app.delete("/pedidos", (requisicao, resposta) => {
+  try {
+    bancoDados.length = 0; // ou bancoDados = [}
+    resposta.status(200).json({mensagem:"Todos os pedidos foram deletados"})
+  } catch (error) {
+    resposta.status(500).json({
+      mensagem:"Erro ao deletar pedidos",
+      erro: error.message
+    })  
+  }
+})
 
 
 app.listen(port, () => {

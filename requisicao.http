@@ -1,7 +1,13 @@
-### Rota para pegar os produtos
+### Rota para pegar todos os produtos
 GET http://localhost:3000/pedidos
+### fechando a requisição
 
-### fechando a requicisao
+
+### Pegar um único produto pelo ID
+GET http://localhost:3000/pedidos/1
+Content-Type: application/json
+### fechando requisição
+
 
 ### Rota criando o produto
 POST http://localhost:3000/pedidos
@@ -14,17 +20,10 @@ Content-Type: application/json
     "quant_medicamento": "2",
     "vl_total": "10.00",
     "status_pedido": "Aguardando pagamento",
-    "forma_pagamento": "Dinheiro"    
+    "forma_pagamento": "Dinheiro"   
 }
+### fechando requisição
 
-### 
-
-
-### Pegar produto pelo ID
-GET http://localhost:3000/pedidos/1
-Content-Type: application/json
-
-###
 
 ### PUT - Editar Produto
 PUT http://localhost:3000/pedidos/1
@@ -39,11 +38,18 @@ Content-Type: application/json
     "novoStatus_pedido": "Aguardando pagamento",
     "novoForma_pagamento": "Dinheiro"    
 }
-
-
-###
+### ffechando requisição
 
 
 ### DELETE - Deletar produto
 DELETE http://localhost:3000/pedidos/1
 Content-Type: application/json
+### fechando requisição
+
+
+### Deletar todos produtos
+DELETE http://localhost:3000/pedidos
+Content-Type: application/json
+### fechando requisição
+
+
