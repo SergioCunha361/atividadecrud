@@ -1,12 +1,17 @@
 ### Rota para pegar todos os produtos
+
 GET http://localhost:3000/pedidos
+
 ### fechando a requisição
 
 
 ### Pegar um único produto pelo ID
+
 GET http://localhost:3000/pedidos/1
 Content-Type: application/json
+
 ### fechando requisição
+
 
 
 ### Rota criando o produto
@@ -36,7 +41,7 @@ Content-Type: application/json
     "novoQuant_medicamento": "5",
     "novoVl_total": "100.00",
     "novoStatus_pedido": "Aguardando pagamento",
-    "novoForma_pagamento": "Dinheiro"    
+    "novoForma_pagamento": "Cartão"    
 }
 ### ffechando requisição
 
