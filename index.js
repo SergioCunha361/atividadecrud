@@ -84,7 +84,7 @@ app.post('/pedido', async (requisicao, resposta) => {
 
 app.put('/pedido/:id', async (requisicao, resposta) => {
   try {
-    // loacalhost:3000/produtos/1 - O 1 é o parametro
+    // loacalhost:3000/pedido/1 - O 1 é o parametro
 const id  = requisicao.params.id;
 const { novoCliente, novoMedicamentos, novoQuantidade, novoValor_total, novoStatus, novoForma_pagamento } = requisicao.body //levando dados para requisição
 
@@ -92,14 +92,14 @@ if (!id){
   return resposta.status(404).json({mensagem:"Informe o parametro"})
 }
 const dados1 = [id];// id em formato de array para a consulta
-const consulta1 = `select * from produto where id = $1`
+const consulta1 = `select * from pedido where id = $1`
 const resultado1 = await pool.query(consulta1, dados1)
 //resutlado1 grava todos os elemtos que foram encontrados na consulta1
 if (!resultado1.rows.length === 0){
-  return resposta.status(404).json({mensagem: "Produto não enconatrado"})
+  return resposta.status(404).json({mensagem: "Pedido não enconatrado"})
   }
 const dados2 =  [id, novoCliente, novoMedicamentos, novoQuantidade, novoValor_total, novoStatus, novoForma_pagamento ]
-const consulta2 = `update produto set cliente = $2, medicamentos = $3, quantidade = $4, valor_total = $5, 
+const consulta2 = `update pedido set cliente = $2, medicamentos = $3, quantidade = $4, valor_total = $5, 
 status = $6, forma_pagamento = $7 where id= $1 returning *`
 await pool.query(consulta2, dados2)
 resposta.status(200).json({mensagem: "Pedido atualizado com sucesso"})

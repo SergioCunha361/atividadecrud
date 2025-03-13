@@ -6,7 +6,7 @@ GET http://localhost:3000/
 
 ### Pegar um único produto pelo ID
 
-GET http://localhost:3000/pedido/1
+GET http://localhost:3000/pedido/5
 Content-Type: application/json
 
 ### fechando requisição
@@ -29,14 +29,13 @@ Content-Type: application/json
 
 
 ### PUT - Editar Produto
-PUT http://localhost:3000/pedido/1
+PUT http://localhost:3000/pedido/6
 Content-Type: application/json
 
 {
-    "id": "1", 
     "novoCliente": "João Gomes", 
     "novoMedicamentos": "ASS",
-    "novoQuantidade_medicamentos": "5",
+    "novoQuantidade": "5",
     "novoValor_total": "100.00",
     "novoStatus": "3",
     "novoForma_pagamento": "Cartão"    
@@ -44,8 +43,9 @@ Content-Type: application/json
 ### fechando requisição
 
 
+
 ### DELETE - Deletar produto
-DELETE http://localhost:3000/pedido/1
+DELETE http://localhost:3000/pedido/5
 Content-Type: application/json
 ### fechando requisição
 
